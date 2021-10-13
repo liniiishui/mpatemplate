@@ -2,16 +2,16 @@ module.exports = {
   presets: [
     '@vue/app'
   ],
-  plugins:[
+  plugins: [
     [
-      "component",
+      'component',
       {
-        "libraryName":"southgisui",
-        styleLibrary:{
-          'base':false,
-          "styleLibraryName": "sgui-theme"
+        'libraryName': 'southgisui',
+        styleLibrary: {
+          'base': false,
+          'styleLibraryName': 'sgui-theme'
         },
-        'style':false
+        'style': false
       }
     ]
   ]
