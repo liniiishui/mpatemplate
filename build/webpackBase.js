@@ -4,6 +4,7 @@ const fs = require('fs')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -12,12 +13,10 @@ function assetsPath (_path) {
   return path.posix.join(config.build.assetsSubDir, _path)
 }
 const devModel = process.env.NODE_ENV !== 'production'
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const config = require('./config')
 
-let page = fs.readdirSync(resolve('src/pages'))
-page = page.filter(item => !config.invalidModules.includes(item))
-let enterArr = {}
+const page = fs.readdirSync(resolve('src/pages'))
+const enterArr = {}
 const htmlplugin = []
 
 page.forEach(item => {
@@ -33,8 +32,7 @@ page.forEach(item => {
         collapseWhitespace: true,
         removeAttributeQuotes: true
       },
-      chunksSortMode: 'dependency',
-      chunks: ['southgisui-modules', 'business-modules', 'vendors', 'commons', item]
+      chunks: ['southgisui-modules', 'vendors', 'commons', item]
     })
   )
 })

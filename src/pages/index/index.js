@@ -3,9 +3,13 @@ import App from './index.vue'
 import store from '@/store'
 
 // 引入sgui组件库
-import '@/assets/icon/iconfont.js'
-import '@/assets/icon/iconfont.css'
+import '@/assets/iconfont/iconfont.js'
+import '@/assets/iconfont/iconfont.css'
 
+// 引入全局样式
+import '@/assets/styles/index.scss'
+// 引入组件库默认样式
+import 'southgisui/lib/sgui-theme/index.css'
 import {
   SgDatePicker,
   SgInputNumber,

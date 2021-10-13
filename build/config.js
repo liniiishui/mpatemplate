@@ -9,43 +9,31 @@ module.exports = {
   dev: {
     // 接口代理地址
     proxy: [{
-        changeOrigin: true,
-        hostRewrite: 'localhost:8080',
-        context: [
-          '/mapviewmgr',
-          '/mainweb',
-          '/cas',
-          '/flowengine',
-          '/formengine',
-          '/bootstrap',
-          '/formdesigner-web',
-          '/flowdesigner',
-          '/mainProject',
-          '/imobile-home-customizer-web',
-          '/imobile-main-web',
-          '/suppmgr',
-          '/exprengine',
-          '/boengine',
-          '/filemgr'
-        ],
-        target: 'http://192.168.10.126'
-      }
-    ],
-    // host
-    host: 'localhost',
+      changeOrigin: true,
+      hostRewrite: 'localhost:8080',
+      context: [
+        '/bootstrap',
+        '/mainProject',
+        '/cas',
+        '/mainweb'
+      ],
+      target: 'http://192.168.10.126'
+    }],
     // 端口
-    port: 8089,
-    // 开发路径别名
+    port: 8080,
+    // 主机号，局域网内可访问时，可修改为0.0.0.0
+    host: 'localhost',
+    // 开发别名路径
     alias: {
       '@': resolve('src'),
-      vue$: 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js'
     },
     // 自动解析拓展
     extensions: ['.js', '.vue', '.scss']
   },
   build: {
     // 输出目标目录
-    assetsRoot: resolve('./businesslist'),
+    assetsRoot: resolve('./dist'),
     // 输出静态资源目录
     assetsSubDir: 'static',
     // sourcemap配置

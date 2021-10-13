@@ -13,7 +13,7 @@ function assetsPath (_path) {
 }
 var webpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
-  devtool: 'hidden-cheap-source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     path: config.build.assetsRoot,
     filename: assetsPath('js/[name].js'),
@@ -35,15 +35,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         southgisui: {
           test: /[\\/]southgisui[\\/]/,
           name: 'southgisui-modules',
-          minSize: 30000,
-          minChunks: 1,
-          chunks: 'initial',
-          priority: 2
-        },
-        businessmodules: {
-          // 将更新频繁的库统一放到business.js文件中
-          test: /[\\/](expression-editor|fpautils)[\\/]/,
-          name: 'business-modules',
           minSize: 30000,
           minChunks: 1,
           chunks: 'initial',
@@ -95,7 +86,7 @@ if (config.build.sourcemap) {
       assetNameRegExp: /\.css$/g,
       cssProcessorOptions: {
         safe: true,
-        autoprefixer: { disable: true }, // 这里是个大坑
+        autoprefixer: { disable: true },
         mergeLonghand: false,
         discardComments: {
           removeAll: true // 移除注释
