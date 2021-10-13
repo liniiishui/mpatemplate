@@ -47,7 +47,7 @@ const webpackconfig = {
     proxy: config.dev.proxy,
     hot: true,
     port: config.dev.port,
-    host: 'localhost'
+    host: config.dev.host
   },
   module: {
     rules: [{
